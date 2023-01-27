@@ -1,0 +1,30 @@
+{
+   "author": "bkrs.info",
+   "background": {
+      "persistent": false,
+      "run_at": "document_end",
+      "scripts": [ "event_page.js" ]
+   },
+   "browser_action": {
+      "default_icon": "on.png"
+   },
+   "content_scripts": [ {
+      "all_frames": false,
+      "js": [ "jquery.js", "script.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   } ],
+   "description": "Китайско-Русский перевод при выделении текста, http://bkrs.info",
+   "icons": {
+      "128": "icon128.png",
+      "16": "icon16.png",
+      "48": "icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAggoP7c6LAjtLwQ+JfcwcL1KCPQEziYsddOF7jAzlfDgnS12dSSuootDwLL/NbHAGKqL0oDjr4pbGAo3h6LO1J0MlSYUbQg3yPKuzgEgsgB9u2ExIVq9jcN0sWZUuAPoK646s9PO9hAA+lLQNbsnwZwHc/QK4xUINpGDkNsZ82Or37TkJcjypWZMKGKSXt/Six5u5tBjr4U7DpZXaI26/wj/Y7DfYr1Zw0mm4iKGSNGfHN5A945fzbgVjhr3rsrUmOyUaEbiAz3p74mqgYpC1WsCYoiuU+4TnFYBl6yo89NJgX5ozrZKw4vjCovIskbRBf50GcWeKFnNKaJLrevbExwIDAQAB",
+   "manifest_version": 2,
+   "name": "大БКРС",
+   "offline_enabled": false,
+   "permissions": [ "https://dabkrs.com/", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.03"
+}
