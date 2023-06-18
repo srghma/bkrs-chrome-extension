@@ -80,7 +80,7 @@ $(document.body).bind('mouseup', function(e) {
 
 				// cache
 				if ( text in cache ) {
-					result_show(cache[text]);
+					result_show(cache[text], text);
 				}
 				else {
 					// stats
@@ -96,7 +96,7 @@ $(document.body).bind('mouseup', function(e) {
 							data = jQuery.parseJSON(xhr.responseText);
 							cache[text] = data;
 
-							result_show(data);
+							result_show(data, text);
 						}
 					}
 					xhr.send();
@@ -116,8 +116,11 @@ $('body').mouseup(function()
 });
 
 // show
-function result_show(data) {
-	$('#brks_addon_text').html("<div>"+data.data+"</div>").show();
+function result_show(data, text) {
+  var output = data.data
+  var text_with_links = [...text].map(x => `<a target="_blank" href="https://srghma-chinese2.github.io/h.html#${encodeURIComponent(x)}">${x}</a>`).join('')
+  output = output.replace('</a></div>', `</a></div><br><div>${text_with_links}</div>`)
+	$('#brks_addon_text').html("<div>"+output+"</div>").show();
 	$('#brks_addon_text').css({top: position_top, left: 20});
 
 	bkrs_addon_can_close = 1;
